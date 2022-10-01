@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row mx-2">
+    {% for x in y %}
+    <div class="col col-md-3">
+      <div class="card shadow-lg my-2 h-80">
+        <img src="{{x.rsimg.url}}" class="card-img-top" height="120px">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <span class="badge badge-info" style="font-size:15px">{{x.rname}}</span>
+            </div>
+            <div class="col">
+              <span class="float-right text-primary">{{x.address}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span>Items: {{x.nitems}}</span>
+            </div>
+            <div class="col">
+              <span class="float-right">Timings: {{x.timings}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <a href="{% url 'itmvu' x.id %}" class="btn btn-outline-success my-1 form-control">Check Items</a>
+            </div>
+            <div class="col">
+              <a href="#" class="btn btn-outline-warning my-1 form-control">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
